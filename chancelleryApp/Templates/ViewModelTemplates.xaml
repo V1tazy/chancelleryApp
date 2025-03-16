@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm ="clr-namespace:chancelleryApp.ViewModels"
+                    xmlns:view ="clr-namespace:chancelleryApp.Views.Customs">
+
+    <DataTemplate DataType="{x:Type vm:LoginViewModel}">
+        <view:LoginView DataContext="{Binding}"></view:LoginView>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:MainViewModel}">
+        <view:MainView DataContext="{Binding}"/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:ProductViewModel}">
+        <view:ProductView DataContext="{Binding}"/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:ItemViewModel}">
+        <view:ItemView DataContext="{Binding}"/>
+    </DataTemplate>
+</ResourceDictionary>

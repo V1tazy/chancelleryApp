@@ -1,4 +1,5 @@
 ﻿using chancelleryApp.ViewModels.Base;
+using System.Windows.Input;
 
 namespace chancelleryApp.ViewModels
 {
@@ -13,9 +14,24 @@ namespace chancelleryApp.ViewModels
         }
 
 
-        public MainWindowViewModel()
-        {
 
+        public MainWindowViewModel()
+        { 
+            var loginViewModel = new LoginViewModel();
+            loginViewModel.RequestChangeViewModel += OnRequestChangeViewModel;
+            CurrentVM = loginViewModel;
+        }
+
+
+        private void OnRequestChangeViewModel(object sender, ViewModel newVM) {
+
+            if (CurrentVM != null) 
+                CurrentVM.RequestChangeViewModel -= OnRequestChangeViewModel;
+
+
+            newVM.RequestChangeViewModel += OnRequestChangeViewModel;
+
+            CurrentVM = newVM;
         }
     }
 }

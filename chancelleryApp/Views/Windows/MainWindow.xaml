@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:chancelleryApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        DataContext="{Binding}">
+        DataContext="{Binding Path=MainWindowViewModel, Source={StaticResource Locator}}">
     <Grid>
-
+        <ContentControl Content="{Binding CurrentVM}"></ContentControl>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using chancelleryApp.DAL.Entityes;
+﻿using chancelleryApp.DAL.Context;
+using chancelleryApp.DAL.Entityes;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,10 @@ namespace chancelleryApp.DAL.Repository
 {
     internal class ItemRepository: DbRepository<Item>
     {
+        public ItemRepository(chancelleryContext db) : base(db)
+        {
+        }
+
         public override IQueryable<Item> items => base.items
             .Include(c => c.category)
             .Include(sc => sc.subCategory)

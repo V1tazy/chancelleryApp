@@ -20,6 +20,13 @@ namespace chancelleryApp.DAL
 
         public virtual IQueryable<T> items => _Set;
 
+        public DbRepository(chancelleryContext db)
+        {
+            _db = db;
+            _Set = db.Set<T>();
+            AutoSaveChages = true;
+        }
+
         public T Add(T item)
         {
             if(item is null) throw new ArgumentNullException(nameof(item));

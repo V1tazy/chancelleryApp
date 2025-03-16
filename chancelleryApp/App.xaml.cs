@@ -1,4 +1,5 @@
 ﻿using chancelleryApp.Data;
+using chancelleryApp.Services;
 using chancelleryApp.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -22,6 +23,7 @@ namespace chancelleryApp
 
         internal static void ConfigureService(HostBuilderContext host, IServiceCollection services) => services
             .AddDatabase()
+            .AddService()
             .AddViewModel();
 
         protected override async void OnStartup(StartupEventArgs e)

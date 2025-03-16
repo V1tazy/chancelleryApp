@@ -9,6 +9,6 @@ namespace chancelleryApp.ViewModels
 {
     class ViewModelLocator
     {
-        public MainWindowViewModel MainWindowViewModel = App.Services.GetRequiredService<MainWindowViewModel>();
+        public MainWindowViewModel MainWindowViewModel => App.Services.GetRequiredService<MainWindowViewModel>();
     }
 }

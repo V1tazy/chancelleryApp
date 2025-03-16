@@ -1,4 +1,5 @@
-﻿using chancelleryApp.DAL.Entityes;
+﻿using chancelleryApp.DAL.Context;
+using chancelleryApp.DAL.Entityes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,10 @@ using System.Threading.Tasks;
 
 namespace chancelleryApp.DAL.Repository
 {
-    internal class SubCategoryRepository: DbRepository<SubCategory>
+    internal class SubCategoryRepository : DbRepository<SubCategory>
     {
+        public SubCategoryRepository(chancelleryContext db) : base(db)
+        {
+        }
     }
 }
