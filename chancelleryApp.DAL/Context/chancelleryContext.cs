@@ -1,12 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using chancelleryApp.DAL.Entityes;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace chancelleryApp.DAL.Context
 {
-    internal class chancelleryContext
+    public class chancelleryContext: DbContext
     {
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
+
+        public DbSet<SubCategory> SubCategories { get; set; }
+
+        public DbSet<SubCategoryItem> SubCategoriesItem { get; set; }
+
+        public DbSet<ItemDescribe> ItemDescribe { get; set; }
+
+        public DbSet<Item> Items { get; set; }
+
+        public chancelleryContext(DbContextOptions<chancelleryContext> options) : base(options) { }
     }
 }

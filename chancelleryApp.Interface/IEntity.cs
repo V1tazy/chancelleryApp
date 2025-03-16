@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace chancelleryApp.Interface
 {
-    internal interface IEntity
+    public interface IEntity
     {
+        public int Id { get; set; }
     }
 }
