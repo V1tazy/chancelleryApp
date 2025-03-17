@@ -1,4 +1,5 @@
 ﻿using chancelleryApp.DAL.Entityes;
+using chancelleryApp.Infrastructure.Commands;
 using chancelleryApp.Models;
 using chancelleryApp.Services.Items;
 using chancelleryApp.Services.Product;
@@ -6,6 +7,7 @@ using chancelleryApp.ViewModels.Base;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace chancelleryApp.ViewModels
 {
@@ -28,10 +30,18 @@ namespace chancelleryApp.ViewModels
             set => Set(ref _products, value);
         }
 
+        public ICommand UndoCommand { get; }
+
         public ProductViewModel(User currentUser)
         {
+            UndoCommand = new LambdaCommand(ExecuteCommand);
             _productService = App.Services.GetService<IProductService>();
             LoadProductsAsync();
+        }
+
+        private void ExecuteCommand(object obj)
+        {
+            RequestViewModelChanged(new MainViewModel(CurrentUser));
         }
 
         private async Task LoadProductsAsync()

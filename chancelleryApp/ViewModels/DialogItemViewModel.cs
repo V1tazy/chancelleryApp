@@ -58,6 +58,8 @@ namespace chancelleryApp.ViewModels
             CancelCommand = new LambdaCommand(OnCancelCommandExecute);
 
             Content = "Добавить";
+
+            SelectedItem = new Item();
         }
 
         public DialogItemViewModel(User currentUser, Item item, IItemsService itemsService)

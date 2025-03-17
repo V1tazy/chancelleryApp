@@ -13,12 +13,19 @@
         </Grid.RowDefinitions>
 
         <StackPanel>
+            <TextBlock>Артикл</TextBlock>
             <TextBox Text="{Binding SelectedItem.Article_id}"/>
+            <TextBlock>Категория</TextBlock>
             <TextBox Text="{Binding SelectedItem.category.Name}"/>
+            <TextBlock>Подкатегория</TextBlock>
             <TextBox Text="{Binding SelectedItem.subCategory.Name}"/>
+            <TextBlock Text="Подкатегория"></TextBlock>
             <TextBox Text="{Binding SelectedItem.subCategoryItem.Name}"/>
+            <TextBlock>Стоимость</TextBlock>
             <TextBox Text="{Binding SelectedItem.coast}"/>
+            <TextBlock>Кол-во</TextBlock>
             <TextBox Text="{Binding SelectedItem.quantity}"/>
+            <TextBlock>Описание</TextBlock>
             <TextBox Text="{Binding SelectedItem.describe.Name}"/>
         </StackPanel>
         
