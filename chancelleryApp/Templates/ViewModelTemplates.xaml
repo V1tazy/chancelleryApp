@@ -18,4 +18,8 @@
     <DataTemplate DataType="{x:Type vm:ItemViewModel}">
         <view:ItemView DataContext="{Binding}"/>
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:DialogItemViewModel}">
+        <view:DialogItemView DataContext="{Binding}"></view:DialogItemView>
+    </DataTemplate>
 </ResourceDictionary>

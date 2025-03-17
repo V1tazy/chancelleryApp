@@ -22,10 +22,20 @@
                 <DataGridTextColumn Header="Описание" Binding="{Binding describe.Name}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Command="{Binding UpdateCommand}">Обновить</Button>
-            <Button Command="{Binding AddCommand}">Добавить</Button>
-            <Button Command="{Binding RemoveCommand}">Удалить</Button>
-        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                <Button Command="{Binding UpdateCommand}">Обновить</Button>
+                <Button Command="{Binding AddCommand}">Добавить</Button>
+                <Button Command="{Binding EditCommand}">Редактировать</Button>
+                <Button Command="{Binding RemoveCommand}">Удалить</Button>
+            </StackPanel>
+
+            <Button Grid.Column="1" Command="{Binding UndoCommand}"> Назад</Button>
+        </Grid>
+
     </Grid>
 </UserControl>

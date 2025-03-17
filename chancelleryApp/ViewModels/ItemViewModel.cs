@@ -45,6 +45,8 @@ namespace chancelleryApp.ViewModels
 
         public ICommand EditCommand { get; }
 
+        public ICommand UndoCommand { get; }
+
         public ItemViewModel(User currentUser)
         {
             _itemsService = App.Services.GetService<IItemsService>();
@@ -54,18 +56,26 @@ namespace chancelleryApp.ViewModels
             UpdateCommand = new LambdaCommand(OnUpdateCommandExecute);
             RemoveCommand = new LambdaCommand(OnRemoveCommandExecute, CanRemoveCommandExecute);
             EditCommand = new LambdaCommand(OnEditCommandExecute, CanEditCommandExecute);
+            UndoCommand = new LambdaCommand(OnUndoCommandExecute);
 
             LoadDataAsync();
         }
 
+        private void OnUndoCommandExecute(object obj)
+        {
+            RequestViewModelChanged(new MainViewModel(CurrentUser));
+        }
+
         private bool CanEditCommandExecute(object arg)
         {
-            return true;
+            if (SelectedItem != null) return true;
+
+            return false;
         }
 
         private void OnEditCommandExecute(object obj)
         {
-            throw new NotImplementedException();
+            RequestViewModelChanged(new DialogItemViewModel(CurrentUser, SelectedItem, _itemsService));
         }
 
         private bool CanRemoveCommandExecute(object arg)
@@ -96,7 +106,7 @@ namespace chancelleryApp.ViewModels
 
         private void OnAddCommandExecute(object obj)
         {
-            MessageBox.Show(SelectedItem.Article_id.ToString());
+            RequestViewModelChanged(new DialogItemViewModel(CurrentUser, _itemsService));
         }
 
         private async Task LoadDataAsync()

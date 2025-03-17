@@ -7,6 +7,25 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
-            
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <TextBox Text="{Binding SelectedItem.Article_id}"/>
+            <TextBox Text="{Binding SelectedItem.category.Name}"/>
+            <TextBox Text="{Binding SelectedItem.subCategory.Name}"/>
+            <TextBox Text="{Binding SelectedItem.subCategoryItem.Name}"/>
+            <TextBox Text="{Binding SelectedItem.coast}"/>
+            <TextBox Text="{Binding SelectedItem.quantity}"/>
+            <TextBox Text="{Binding SelectedItem.describe.Name}"/>
+        </StackPanel>
+        
+        
+        <StackPanel Grid.Row="1">
+            <Button Content="{Binding Content}" Command="{Binding UniversalCommand}"/>
+            <Button Content="Отменить" Command="{Binding CancelCommand}"/>
+        </StackPanel>
     </Grid>
 </UserControl>

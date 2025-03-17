@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using chancelleryApp.DAL.Entityes;
+using chancelleryApp.Models;
 
 namespace chancelleryApp.Services.Product
 {
-    internal interface IProductService
+    public interface IProductService
     {
+        Task<IEnumerable<ProductModel>> GetAllList();
     }
 }
