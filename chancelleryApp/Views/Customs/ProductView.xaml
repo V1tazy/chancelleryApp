@@ -32,22 +32,21 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <!-- Изображение продукта -->
                             <Image Grid.Row="0" Source="{Binding ImagePath}" Width="100" Height="100" Stretch="UniformToFill" HorizontalAlignment="Center" Margin="0,0,0,10"/>
 
-                            <!-- Название продукта -->
+ 
                             <TextBlock Grid.Row="1" Text="{Binding Title}" FontSize="16" FontWeight="Bold" TextAlignment="Center" Margin="0,0,0,5"/>
 
-                            <!-- Описание продукта -->
+
                             <TextBlock Grid.Row="2" Text="{Binding Description}" FontSize="12" TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,5"/>
 
-                            <!-- Цена продукта -->
+ 
                             <TextBlock Grid.Row="3" Text="{Binding Price, StringFormat='Цена: {0} руб.'}" FontSize="14" FontWeight="SemiBold" TextAlignment="Center"/>
                         </Grid>
                     </Border>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <Button Content="Назад" Command="{Binding UndoCommand}" Grid.Row="1"/>
+        <Button Content="Назад" Command="{Binding UndoCommand}" Grid.Row="1" Background="DarkViolet" Foreground="White"/>
     </Grid>
 </UserControl>
